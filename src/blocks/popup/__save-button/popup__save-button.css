@@ -1,0 +1,19 @@
+.popup__save-button {
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    width: 250px;
+    padding: 5px;
+    margin: 20px 0 0;
+    font-family: 'Montserrat';
+    color: #fff;
+    cursor: pointer;
+}  
+
+.popup__save-button:hover {
+    opacity: 0.9;
+}
+
+.popup__save-button:active {
+    transform: scale(0.97);
+}

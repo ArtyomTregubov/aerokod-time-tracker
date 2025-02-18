@@ -1,0 +1,11 @@
+.search__form-input {
+    padding: 0 0 0 5px;
+    border: 0;
+    width: 260px;
+    height: 23px;
+    margin: 0 0 0 16px;
+    border-radius: 6px;
+    font-family: 'Montserrat';
+    font-size: 15px;
+    color: #000;
+}

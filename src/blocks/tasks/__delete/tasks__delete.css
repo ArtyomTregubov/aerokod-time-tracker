@@ -1,0 +1,17 @@
+.tasks__delete {
+    border: 0;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 14px;
+    height: 52px;
+    color: #fff;
+    background-color: #f16868;
+}
+
+.tasks__delete:hover {
+    opacity: 0.9;
+}
+
+.tasks__delete:active {
+    transform: scale(0.97);
+}

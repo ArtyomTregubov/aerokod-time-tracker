@@ -1,0 +1,17 @@
+.tasks__button {
+    margin: 0 0 5px;
+    padding: 5px;
+    border: 0;
+    border-radius: 3px;
+    background-color: #43759a;
+    color: #fff;
+    cursor: pointer;
+}
+
+.tasks__button:hover {
+    opacity: 0.9;
+}
+
+.tasks__button:active {
+    transform: scale(0.97);
+}

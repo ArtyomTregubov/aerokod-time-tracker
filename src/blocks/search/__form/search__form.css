@@ -1,0 +1,6 @@
+.search__form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: #000;
+}

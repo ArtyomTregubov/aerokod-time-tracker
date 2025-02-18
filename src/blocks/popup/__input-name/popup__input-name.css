@@ -1,0 +1,10 @@
+.popup__input-name {
+    width: 250px;
+    height: 25px;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    margin: 10px;
+    font-family: Montserrat;
+    color: #fff;
+}
