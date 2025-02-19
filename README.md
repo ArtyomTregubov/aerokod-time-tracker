@@ -2,6 +2,6 @@
 
 Используемые технологии:
 
-CSS БЭМ React JS
+CSS БЭМ React JS Type Script
 
 Старт роекта: npm start

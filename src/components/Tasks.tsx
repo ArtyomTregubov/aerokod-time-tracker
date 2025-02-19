@@ -1,21 +1,34 @@
 import React, { useState } from "react";
 
-export default function Tasks({ tasks, onDeleteTask }) {
-  
-  const [startTimes, setStartTimes] = useState({});
-  const [finishTimes, setFinishTimes] = useState({}); 
+interface Task {
+    id: string;
+    name: string;
+    description: string;
+    time: string;
+    date: string;
+}
 
-  const handleStart = (taskId) => {
+interface TasksProps {
+    tasks: Task[];
+    onDeleteTask: (taskId: string) => void;
+}
+
+export default function Tasks({ tasks, onDeleteTask }: TasksProps) {
+  
+  const [startTimes, setStartTimes] = useState<Record<string, string>>({});
+  const [finishTimes, setFinishTimes] = useState<Record<string, string>>({}); 
+
+  const handleStart = (taskId: string) => {
     const currentTime = new Date().toLocaleTimeString();
     setStartTimes((prev) => ({ ...prev, [taskId]: currentTime }));
   };
 
-  const handleFinish = (taskId) => {
+  const handleFinish = (taskId: string) => {
     const currentTime = new Date().toLocaleTimeString();
     setFinishTimes((prev) => ({ ...prev, [taskId]: currentTime })); 
   };
 
-  const isFinishTimeValid = (taskId, taskTime) => {
+  const isFinishTimeValid = (taskId: string, taskTime: string) => {
     const startTime = startTimes[taskId];
     const finishTime = finishTimes[taskId];
 
@@ -32,7 +45,7 @@ export default function Tasks({ tasks, onDeleteTask }) {
         return false;
     }
 
-    const timeSpent = (finishDate - startDate) / (1000 * 60 * 60); 
+    const timeSpent = (finishDate.getTime() - startDate.getTime()) / (1000 * 60 * 60); 
 
     console.log(`Start Time: ${formattedStartTime}, Finish Time: ${formattedFinishTime}, Time Spent: ${timeSpent}, Task Time: ${taskTime}`);
 

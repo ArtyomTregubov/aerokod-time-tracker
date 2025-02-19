@@ -6,21 +6,29 @@ import Popup from './Popup';
 import Tasks from './Tasks';
 import { v4 as uuidv4 } from 'uuid'; 
 
-const App = () => {
-    const [TaskCards, setTaskCards] = useState([]);
+interface Task {
+    id: string;
+    name: string;
+    description: string;
+    time: string;
+    date: string;
+}
+
+const App: React.FC = () => {
+    const [TaskCards, setTaskCards] = useState<Task[]>([]);
     const [isPopupOpen, setIsOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
-    const [filteredTasks, setFilteredTasks] = useState([]);
+    const [filteredTasks, setFilteredTasks] = useState<Task[]>([]);
 
     const togglePopup = () => {
         setIsOpen(!isPopupOpen);
     };
 
-    const addTask = (task) => {
+    const addTask = (task: Omit<Task, 'id'>) => {
         setTaskCards([...TaskCards, { id: uuidv4(), ...task }]);
     };
 
-    const deleteTask = (taskId) => {
+    const deleteTask = (taskId: string) => {
         const updatedTasks = TaskCards.filter(task => task.id !== taskId);
         setTaskCards(updatedTasks);
 
@@ -33,7 +41,7 @@ const App = () => {
         }
     };
 
-    const handleSearchChange = (event) => {
+    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value);
     };
 

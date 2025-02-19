@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 
-const Popup = ({ isOpen, onClose, onAddTask }) => {
+interface PopupProps {
+    isOpen: boolean;
+    onClose: () => void;
+    onAddTask: (task: { name: string; description: string; time: string; date: string }) => void;
+}
+
+const Popup: React.FC<PopupProps> = ({ isOpen, onClose, onAddTask }) => {
     const [taskName, setTaskName] = useState('');
     const [taskDescription, setTaskDescription] = useState('');
     const [taskTime, setTaskTime] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const today = new Date().toLocaleDateString();
         onAddTask({ name: taskName, description: taskDescription, time: taskTime, date: today });

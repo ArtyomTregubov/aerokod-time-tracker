@@ -1,6 +1,12 @@
 import React from "react";
 
-const Search = ({ searchTerm, onSearchChange, onSearch }) => {
+interface SearchProps {
+    searchTerm: string;
+    onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onSearch: () => void;
+}
+
+const Search: React.FC<SearchProps> = ({ searchTerm, onSearchChange, onSearch }) => {
 
   return (
     <section className="search">
@@ -17,8 +23,8 @@ const Search = ({ searchTerm, onSearchChange, onSearch }) => {
             placeholder="Task name" 
             required 
             value={searchTerm}
-            minLength="1" 
-            maxLength="500" 
+            minLength={1}
+            maxLength={500} 
             id="name"
             onChange={onSearchChange}
           />

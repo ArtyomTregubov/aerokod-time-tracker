@@ -1,8 +1,11 @@
 import React from "react";
 
-export default function Header({onAddTask}) {
-  return (
+interface HeaderProps {
+    onAddTask: () => void;
+}
 
+const Header: React.FC<HeaderProps> = ({ onAddTask }) => {
+  return (
     <header className="header">
         <div className="header__container">
            <div className="header__logo-container">
@@ -24,6 +27,7 @@ export default function Header({onAddTask}) {
            </div>
         </div>
     </header>
-    
   );
 }
+
+export default Header;
